@@ -15,7 +15,7 @@ console.log(10)
 /*변수
 1. let 2.변수명(카멜표기법 사용)
 3. 대입연산자 이용
-*/
+
 let box1 // 초기값 x
 let box2 = 100
 
@@ -43,3 +43,25 @@ console.log(box2)// 변수값 콘솔에 출력
 let age = 10
 let speed = 10
 //값은 같지만 다른의미
+
+출력함수
+함수: 자주 사용되는 코드를 정의하여 재사용/호출
+*/
+console.log("안녕하세요")
+
+alert("안녕하세요") //브라우저 알림창 메세지
+
+/*document.querySelector("선택자")
+*/
+document.querySelector("h3").innerHTML = "황소연"
+
+/*입력함수:사용자로부터 입력 받는 함수
+confirm(출력 메세지): 경고 메세지에 출력, ture/false
+let 변수 = confirm() : 입력값 저장 */
+let answer1 = confirm("밥 먹었나요?")
+console.log(answer1)
+
+//prompt
+let answer2 = prompt ("점심 메뉴")
+console.log(answer2)
+

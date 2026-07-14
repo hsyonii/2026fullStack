@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'ElegantSerif';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2604-1@1.0/GraceSerif-Regular.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BonmyeongjoSourceHanSerif';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+.title{
+    font-family: 'ElegantSerif';
+    font-style: italic;
+    font-size: 40px;
+}
+
+.blue{
+    color: blue;
+    font-family: 'BonmyeongjoSourceHanSerif';
+    font-weight: bolder;
+    font-size: 20px;
+    word-spacing: 10px; /*단어간격(어간)*/
+    letter-spacing: 2px;
+    line-height: 120%; /*줄간격*/
+}
+
+.red{
+    color: red;
+    font-family: 'BonmyeongjoSourceHanSerif';
+    text-decoration: underline line-through overline;
+    text-align: center;
+}
+

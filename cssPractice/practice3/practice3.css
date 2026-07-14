@@ -1,0 +1,32 @@
+.box{
+    width: 400px;
+    height: 350px;
+    border-radius: 30px;
+    box-shadow: 3px 5px 10px pink;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title{
+    padding: 10px;
+}
+
+.input{
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.login{
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.singUp{
+    color: blue;
+}

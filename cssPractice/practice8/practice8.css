@@ -1,0 +1,46 @@
+/*레이아웃 확인용*/
+*{
+    border: solid 2px red;
+}
+
+/*바디*/
+.icon_menu>div{
+    display: flex;
+    margin:0 auto;
+    width: 1000px;
+    height: 150px;
+}
+
+.icon_menu>div>div{
+    display: flex;
+}
+
+.icon_menu>div>div>img{
+    width: 100px;
+    height: 100px;
+}
+
+.main_title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.icon_menu>div>div{
+    width:450px;
+}
+
+.촬영스튜디오{
+    background-color:gainsboro;
+}
+.촬영스튜디오>div{
+    width:1000px;
+    display: flex;
+    margin:0 auto;
+}
+.촬영스튜디오>div>div{
+    margin: 50px 10px;
+}
+
+.촬영스튜디오>div>div>img{
+    width: 250px;
+}

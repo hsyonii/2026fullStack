@@ -68,15 +68,14 @@ li{
     padding: 10px;
 }
 
-#sideBar>input{
+#sideBar>div>input{
     width: 200px;
-    height: 33px;
+    height: 30px;
     border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin:0 2px;
 }
-#sideBar>button {
-    padding: 5px;
+#sideBar>div>button {
+    height: 35px;
 }
 #sideBar>#boldText{
     font-weight: bold;
@@ -134,7 +133,7 @@ li{
 }
 .in-footer{
     width: 1280px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .footer-1{

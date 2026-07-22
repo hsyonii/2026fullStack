@@ -16,10 +16,11 @@ let vacationList=[
     {mcode:2,vcode:2,vstart:'2025-07-21',vend:'2025-07-25',vreason:'여름휴가'}
 ]
 
-let finalpcode = 2
+let finalpcode = partList.length-1
 let finalvcode=vacationList.length
 
-//부서관리
+
+//1.부서관리
 showPart( )
 // 부서 추가
 function partAdd( ) {
@@ -27,7 +28,7 @@ function partAdd( ) {
     let object = {pcode : finalpcode+1, pname : name}
     partList.push(object); finalpcode++;
     showPart( )
-}
+    }
 
 // 부서 렌더링
 function showPart( ) {
@@ -46,6 +47,11 @@ function showPart( ) {
         </tr>`
         tbody.innerHTML = html
     }
+    let partOptionHTML=`<option disabled selected hidden>부서를 선택하세요</option>`
+    for(let i=0; i<=partList.length-1; i++){
+        partOptionHTML+=`<option>${partList[i].pname}</option>`
+    }
+    document.querySelector('.part_option').innerHTML=partOptionHTML
 }
 
 // 부서 삭제
@@ -67,6 +73,92 @@ function partUpdate( pcode ) {
             showPart( ); return;
         }
     }
+}
+
+//사원 렌더링
+function showMember() {
+    let html = ''
+    // pcode에 맞는 pname 찾기
+    // pcode는 partList에 있음
+    for (let index = 0; index < memberList.length; index++){
+        // pcode에 맞는 pname을 찾고, pname에 선언
+        let temp = memberList[index].pcode
+        result = partList.find(item => item.pcode == temp)
+        html += `<tr>
+                    <td><img src=${memberList[index].mimg} alt="프로필" class="profile-img"></td>
+                    <td>${memberList[index].mname}</td>
+                    <td>${result.pname}</td>
+                    <td>${memberList[index].mposition}</td>
+                    <td class="action-links align-right">
+                    <a href="#" onclick="memberUpdate(${memberList[index].mcode})" class="link-edit">수정</a>
+                    <a href="#" onclick="memberDelete(${memberList[index].mcode})" class="link-delete">삭제</a>
+                    </td>
+                </tr>`
+    }
+    document.querySelector('.card.sub-section tbody').innerHTML = html
+
+    let memberOptionHTML=`<option disabled selected hidden>휴가 신청 사원을 선택하세요</option>`
+    for(let i=0; i<=memberList.length-1; i++){
+        memberOptionHTML+=`<option>${memberList[i].mname}</option>`
+    }
+    document.querySelector('.member_option').innerHTML=memberOptionHTML
+} showMember(); // 함수선언 후 사원목록 출력
+
+//사원 추가
+function memberUpdate(mcode){
+    for (index=0; index<memberList.length; index++){
+        if(mcode == memberList[index].mcode){
+            let newMebmerName = prompt("새로운 이름을 입력하시오")
+            let newMemberPart = prompt("새로운 부서를 입력하시오")
+            // 없는 부서일 경우 실패
+            for (j=0; j<partList.length; j++){
+                if (partList.find(item => item.pname === newMemberPart)){
+                    newMemberPart = partList[j].pcode
+                    break;
+                }
+                else{
+                    alert("없는 부서입니다")
+                    return
+                }
+            }
+            let newMemberPosition = prompt("새로운 직급을 입력하시오")
+            memberList[index].mname = newMebmerName
+            memberList[index].pcode = newMemberPart
+            memberList[index].mposition = newMemberPosition
+            break;
+        }
+    }
+    showMember()
+    return
+}
+
+
+function memberDelete(mcode){
+    for (index=0; index <memberList.length; index++){
+        if(mcode == memberList[index].mcode){
+            memberList.splice(index, 1)
+            alert("삭제성공")
+            break;
+        }
+    }
+    showMember()
+    return
+}
+
+let memberCode = memberList[memberList.length-1].mcode
+function memberAdd(){
+    
+    memberCode += 1
+    let memberName = document.querySelector('.memberName').value
+    let memberPosition = document.querySelector('.memberPosition').value
+    let memberPart = document.querySelector('.memberPart').value
+    let memberImage = document.querySelector('.memberImg').files[0]
+
+    
+    let object = {mcode: memberCode, mname: memberName, mposition:memberPosition, mimg: memberImage == undefined ? 'https://placehold.co/100' : URL.createObjectURL(image),pcode:0}
+    console.log(memberCode)	
+    memberList.push(object)
+    showMember();
 }
 
 

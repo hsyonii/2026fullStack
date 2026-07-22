@@ -290,8 +290,8 @@
       <div class="card">
         <h2 class="card-title">부서 관리</h2>
         <div class="dept-input-group">
-          <input type="text" placeholder="신규 부서명 입력">
-          <button type="button" class="btn btn-purple">추가</button>
+          <input type="text" placeholder="신규 부서명 입력" class="name">
+          <button type="button" class="btn btn-purple" onclick="partAdd( )">추가</button>
         </div>
 
         <table>
@@ -305,8 +305,8 @@
             <tr>
               <td>개발팀</td>
               <td class="action-links align-right">
-                <a href="#" class="link-edit">수정</a>
-                <a href="#" class="link-delete">삭제</a>
+                <a href="#" class="link-edit" >수정</a>
+                <a href="#" class="link-delete" >삭제</a>
               </td>
             </tr>
             <tr>
@@ -337,32 +337,28 @@
           <div class="input-row">
             <div class="form-group">
               <label>이름</label>
-              <input type="text">
+              <input class="memberName" type="text">
             </div>
             <div class="form-group">
               <label>직급</label>
-              <input type="text">
+              <input class="memberPosition" type="text">
             </div>
           </div>
 
           <div class="input-row">
             <div class="form-group">
               <label>부서</label>
-              <select>
-                <option disabled selected hidden>부서를 선택하세요</option>
-                <option>개발팀</option>
-                <option>디자인팀</option>
-                <option>기획팀</option>
+              <select class="part_option">
               </select>
             </div>
             <div class="form-group">
               <label>사진</label>
-              <input type="file">
+              <input class="memberImg" type="file">
             </div>
           </div>
 
           <div class="btn-right-align">
-            <button type="button" class="btn btn-purple">등록</button>
+            <button onclick="memberAdd()" type="button" class="btn btn-purple">등록</button>
           </div>
         </form>
       </div>
@@ -387,8 +383,8 @@
               <td>개발팀</td>
               <td>선임 개발자</td>
               <td class="action-links align-right">
-                <a href="#" class="link-edit">수정</a>
-                <a href="#" class="link-delete">삭제</a>
+                <a href="#" onclick="memberUpdate()" class="link-edit">수정</a>
+                <a href="#" onclick="memberDelete()" class="link-delete">삭제</a>
               </td>
             </tr>
             <tr>
@@ -424,11 +420,7 @@
         <form>
           <div class="form-group">
             <label>신청 사원</label>
-            <select class = "member_select">
-              <option disabled selected hidden>휴가 신청 사원을 선택하세요</option>
-              <option>김민준</option>
-              <option>이서연</option>
-              <option>박도윤</option>
+            <select class = "member_option">
             </select>
           </div>
 

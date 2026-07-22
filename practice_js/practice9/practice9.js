@@ -12,11 +12,12 @@ let memberList=[
 ]
 
 let vacationList=[
-    {mcode:1,vstart:'2025-08-04',vend:'2025-08-04',vreason:'병원진료'},
-    {mcode:2,vstart:'2025-07-21',vend:'2025-07-25',vreason:'여름휴가'}
+    {mcode:1,vcode:1,vstart:'2025-08-04',vend:'2025-08-04',vreason:'병원진료'},
+    {mcode:2,vcode:2,vstart:'2025-07-21',vend:'2025-07-25',vreason:'여름휴가'}
 ]
 
 let finalpcode = 2
+let finalvcode=vacationList.length
 
 //부서관리
 showPart( )
@@ -87,7 +88,7 @@ function showVaction(){
                 <div class="user-name">${name}</div>
                 <div class="date">${vacationList[i].vstart}~${vacationList[i].vend}</div>
                 <div class="reason">${vacationList[i].vreason}</div>
-                <button onclick="vacationDelete(${vacationList[i].mcode})" type="button" class="btn-cancel">신청취소</button>
+                <button onclick="vacationDelete(${vacationList[i].vcode})" type="button" class="btn-cancel">신청취소</button>
             </div>`
     }
     document.querySelector('.vacation_sub').innerHTML=html
@@ -119,10 +120,10 @@ function vacationAdd(){
 
 
 //휴가신청 취소
-function vacationDelete(mcode){
+function vacationDelete(vcode){
     //휴가사원의 사원코드 찾아오기
     for(let i=0; i<=vacationList.length-1; i++){
-        if(mcode == vacationList[i].mcode){
+        if(vcode == vacationList[i].vcode){
             vacationList.splice( i , 1 );
             alert('신청취소됨.');
         }

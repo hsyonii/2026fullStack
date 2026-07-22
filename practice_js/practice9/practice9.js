@@ -113,7 +113,6 @@ function vacationAdd(){
     //vationList 에 추가
     let vacationSub={mcode,vstart,vend,vreason}
     vacationList.push(vacationSub)
-    console.log(vacationList)
     //출력
     showVaction()
 }

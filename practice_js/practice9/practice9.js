@@ -16,16 +16,71 @@ let vacationList=[
     {mcode:2,vstart:'2025-07-21',vend:'2025-07-25',vreason:'여름휴가'}
 ]
 
+let finalpcode = 2
+
+//부서관리
+showPart( )
+// 부서 추가
+function partAdd( ) {
+    let name = document.querySelector('.name').value
+    let object = {pcode : finalpcode+1, pname : name}
+    partList.push(object); finalpcode++;
+    showPart( )
+}
+
+// 부서 렌더링
+function showPart( ) {
+    let tbody = document.querySelector('.col-left .card table tbody')
+    let html = ''
+    if(partList.length == 0) tbody.innerHTML = html
+    for( let index = 0; index <= partList.length-1; index++ ){
+        let part = partList[index]
+        html += `
+        <tr>
+            <td> ${ part.pname } </td>
+            <td class="action-links align-right">
+                <a href="#" class="link-edit" onclick="partUpdate(${ part.pcode })">수정</a>
+                <a href="#" class="link-delete" onclick="partDelete(${ part.pcode })">삭제</a>
+            </td>
+        </tr>`
+        tbody.innerHTML = html
+    }
+}
+
+// 부서 삭제
+function partDelete( pcode ) {
+    for( let index = 0; index < partList.length; index++){
+        if( partList[index].pcode == pcode ){
+            partList.splice( index, 1 )
+            alert('삭제 성공')
+            showPart( ); return
+        }
+    }
+}
+// 부서 수정
+function partUpdate( pcode ) {
+    for( let index = 0; index < partList.length; index++){
+        if( partList[index].pcode == pcode ) {
+            let newPname = prompt('새로운 부서명을 입력해주세요.')
+            partList[index].pname = newPname 
+            showPart( ); return;
+        }
+    }
+}
+
+
+//휴가
 showVaction()
 
 //휴가신청 출력
 function showVaction(){
-    let name=''
     let html=''
+    let name=''
     for(let i=0; i<=vacationList.length-1; i++){
         for(let j=0; j<=memberList.length-1; j++){
             if(vacationList[i].mcode==memberList[j].mcode){
                 name=memberList[j].mname
+                break
             }
         }
         html+=`<div class="vacation-card">
@@ -46,7 +101,7 @@ function vacationAdd(){
     //휴가사원의 사원코드 찾아오기
     for(let i=0; i<=memberList.length-1; i++){
         if(member == memberList[i].mname){
-            mcode = memberList[i].mname
+            mcode = memberList[i].mcode
             break
         }
     }
@@ -58,13 +113,13 @@ function vacationAdd(){
     //vationList 에 추가
     let vacationSub={mcode,vstart,vend,vreason}
     vacationList.push(vacationSub)
-    
+    console.log(vacationList)
     //출력
     showVaction()
 }
 
 
-//
+//휴가신청 취소
 function vacationDelete(mcode){
     //휴가사원의 사원코드 찾아오기
     for(let i=0; i<=vacationList.length-1; i++){

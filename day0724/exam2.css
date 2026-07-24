@@ -1,0 +1,70 @@
+/* a마크업안 기본값 밑줄제거&색상변경 */
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* :hover : 해당 마크업에 마우스 올렸을때 적용되는 속성 */
+a:hover{
+    color: red;
+}
+
+/* :visited : 해당 브라우저내 방문했던 링크에 적용 */
+a:visited{
+    color: plum;
+}
+
+/* :actve : 해당 마크업 클릭하는 순간 적용 */
+a:active{
+    color: blue;
+}
+
+/* :before : 해당마크업 앞에 가상요소(브라우저에서 드래그,클릭X)추가*/
+.box1:before{
+    /*content:"들어갈요소"*/
+    content: "가상요소 앞 구역";
+}
+
+.box1:after{
+    content: "가상요소 뒤 구역";
+}
+
+/*글머리 넣어보기*/
+li{
+    list-style-type: none; /*기존 글머리 제거*/
+}
+
+.box2>li::before{
+    content:'★'
+}
+
+.box2>li::after{
+    content:url("../무한도전.png");
+}
+
+#header{
+    background-color: beige;
+}
+
+#header>ul{
+    display: flex;
+    justify-content: center;
+}
+
+.mainMenu>li{
+    padding:10px;
+    position: relative;
+}
+.subMenu{
+    position:absolute; /* 기준이 될 부모요소에도 position 적용해야함 */
+    top: 30px;
+    padding:10px;
+    background-color: beige;
+    width: 50px;
+    display: none;
+}
+
+/* li 에 마우스 올렸을때 .subMenu의 display 속성을 block 으로 변경*/
+.mainMenu >li:hover.subMenu{
+    display:block
+}

@@ -42,8 +42,9 @@ setInterval(시계함수,1000)
 let time=0
 let timeInter;
 function timerStart(){
-    timeInter = setInterval(timerStart,1000)
-    timerShow()
+    //setInterval(반복할 작업(괄호X 함수),주기): 특정 작업을 주기적으로 반복하도록 설정하는 함수
+    timeInter = setInterval(timerShow,1000)
+    //setInterval내 함수에 괄호X ->주기마다 실행할 함수 자체를 등록
 }
 
 function timerShow(){
@@ -52,5 +53,6 @@ function timerShow(){
 }
 
 function timerEnd(){
+    //clearInterval(): 설정한 반복작업 중지하는 함수
     clearInterval(timeInter)
 }

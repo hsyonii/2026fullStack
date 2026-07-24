@@ -8,8 +8,8 @@ function boardPrint(){
     let html=''
     for(let i=0;i<=boardList.length-1;i++){
         html += `<tr>
-                    <td>${boardList[i].no}</td>
-                    <td>${boardList[i].content}</td>
+                    <td><a href="view.html?no=${boardList[i].no}>${boardList[i].no}</a></td>
+                    <td><a href="view.html?no=${boardList[i].no}>${boardList[i].content}</a></td>
                 </tr>`
     }
     document.querySelector('#boardList').innerHTML=html
